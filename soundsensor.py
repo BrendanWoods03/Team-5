@@ -1,5 +1,9 @@
 import RPi.GPIO as GPIO
 import time
+from picamera import PiCamera
+
+#if arm = TRUE tab everything over
+camera = PiCamera()
 
 pin = 6
 GPIO.setmode(GPIO.BCM)
@@ -8,6 +12,7 @@ GPIO.setup(pin, GPIO.IN)
 def detection(pin):
     if GPIO.input(pin):
         print("Sound Detected")
+        camera.capture('/home/pi/Desktop/PersonSpotted.jpg')
     else:
         print("Sound Detected")
 
