@@ -12,7 +12,7 @@ GPIO.setup(pin, GPIO.IN)
 def detection(pin):
     if GPIO.input(pin):
         print("Sound Detected")
-        camera.capture('/home/pi/Desktop/PersonSpotted.jpg')
+        camera.capture('/media/pi/7D10-886F/PersonSpotted.jpg')
     else:
         print("Sound Detected")
 
