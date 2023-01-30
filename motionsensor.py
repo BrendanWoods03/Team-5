@@ -1,8 +1,10 @@
 import RPi.GPIO as GPIO
 import time
+#pi camera 
 from picamera import PiCamera
 camera = PiCamera()
 
+#motion sensor pin
 pin = 4
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.IN)
