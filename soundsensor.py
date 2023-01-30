@@ -1,10 +1,9 @@
 import RPi.GPIO as GPIO
 import time
-from picamera import PiCamera
+from gpiozero import Buzzer
 
 #if arm = TRUE tab everything over
-camera = PiCamera()
-
+buzzer = Buzzer(24)
 pin = 6
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.IN)
@@ -12,7 +11,8 @@ GPIO.setup(pin, GPIO.IN)
 def detection(pin):
     if GPIO.input(pin):
         print("Sound Detected")
-        camera.capture('/media/pi/7D10-886F/PersonSpotted.jpg')
+        buzzer.on()
+        time.sleep(1)
     else:
         print("Sound Detected")
 
