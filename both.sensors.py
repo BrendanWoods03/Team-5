@@ -1,11 +1,19 @@
 import RPi.GPIO as GPIO
 import time
+from picamera import PiCamera
+from gpiozero import Buzzer
+
+#set up picamera
+camera = PiCamera()
 
 #set sound as the GPIO pin the sound sensor is connected to
 sound = 6
 
 #set motion as the GPIO pin the motion sensor is connected to
-motion = 24
+motion = 4
+
+#set up buzzer
+buzzer = Buzzer(24)
 
 #set the GPIO to broadcom mode
 GPIO.setmode(GPIO.BCM)
@@ -18,6 +26,7 @@ GPIO.setup(motion, GPIO.IN)
 def detection(sound):
     if GPIO.input(sound):
         print("Sound Detected")
+        buzzer.on()
     else:
         print("Sound Detected")
 
@@ -25,8 +34,10 @@ def detection(sound):
 def detection(motion):
     if GPIO.input(motion):
         print("Motion Detected")
+        #take picture when motion is detected
+        camera.capture('/home/pi/Desktop/PersonSpotted.jpg')
     else:
-        print("Motion Detected")
+        pass
         
 #
 GPIO.add_event_detect(sound, GPIO.BOTH, bouncetime = 300)
