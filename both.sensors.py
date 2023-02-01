@@ -27,10 +27,10 @@ try:
     #check if sound sensor is detecting sound
     def detection_sound(sound):
         if GPIO.input(sound):
-            print("Sound Detected")
-            buzzer1.beep()
+            pass
         else:
             print("Sound Detected")
+            buzzer.beep()
 
     #check if motion sensor is detecting motion
     def detection_motion(motion):
