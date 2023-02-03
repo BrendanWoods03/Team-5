@@ -5,7 +5,7 @@ from picamera import PiCamera
 from gpiozero import Buzzer
 passwords = ["password", "123", "password123"]
 
-class MainGui(Frame):
+class MainGUI(Frame):
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.setupGUI()
