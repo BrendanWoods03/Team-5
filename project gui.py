@@ -87,7 +87,7 @@ class MainGUI(Frame):
                 
                 #take a 10 second video and send to usb 
                 camera.start_recording('/media/pi/7D10-886F/PersonSpotted.h264')
-                time.sleep(10)
+                time.sleep(5)
                 camera.stop_recording()
                 
                 #set off steady buzzer alarm for 10 seconds 
@@ -105,9 +105,6 @@ class MainGUI(Frame):
         #add event detection and callback for motion sensor
         GPIO.add_event_detect(motion, GPIO.BOTH, bouncetime = 300)
         GPIO.add_event_callback(motion, detection_motion)
-
-        while True:
-            time.sleep(1)
 
 #set up GUI window1
 window1 = Tk()
