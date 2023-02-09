@@ -44,7 +44,7 @@ class MainGUI(Frame):
 
     #function to run the security program when the arm button is clicked
     def arm_sys(self):
-        #labek all sensor inputs
+        #label all sensor inputs
         sound = 6
         motion = 4
         
@@ -70,7 +70,7 @@ class MainGUI(Frame):
             else:
                 #print so user can see what was detected while the system was running
                 print("Sound Detected")
-                #set off beeping buzzer alarm
+                #set off beeping buzzer alarm for 5 seconds
                 buzzer1.beep()
                 time.sleep(5)
                 buzzer1.off()
@@ -85,7 +85,7 @@ class MainGUI(Frame):
                 #take a picture and send to usb 
                 camera.capture('/media/pi/7D10-886F/PersonSpotted.jpg')
                 
-                #take a 10 second video and send to usb 
+                #take a 5 second video and send to usb 
                 camera.start_recording('/media/pi/7D10-886F/PersonSpotted.h264')
                 time.sleep(5)
                 camera.stop_recording()
